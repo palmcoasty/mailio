@@ -41,12 +41,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: aquasecurity/trivy-action@0.28.0
-        with:
-          scan-type: fs
-          format: sarif
-          output: trivy-results.sarif
-          severity: HIGH,CRITICAL
+      - name: Run Trivy filesystem scan
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/workspace" \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            aquasec/trivy:0.65.0 \
+            fs \
+            --format sarif \
+            --output /workspace/trivy-results.sarif \
+            --severity HIGH,CRITICAL \
+            /workspace
       - uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: trivy-results.sarif
