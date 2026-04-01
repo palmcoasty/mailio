@@ -1,0 +1,21 @@
+{
+  "name": "@mailio/sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/worker.ts",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test ./src/**/*.test.ts"
+  },
+  "dependencies": {
+    "@mailio/provider-adapters": "*",
+    "@mailio/shared": "*",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.5"
+  }
+}

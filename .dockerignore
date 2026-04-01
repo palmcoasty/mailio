@@ -1,0 +1,13 @@
+node_modules
+.next
+dist
+coverage
+logs
+tmp
+.git
+.github
+.cursor
+.env
+.env.*
+artifacts
+reports

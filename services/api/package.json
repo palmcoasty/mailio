@@ -1,0 +1,27 @@
+{
+  "name": "@mailio/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test ./src/**/*.test.ts"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^11.0.1",
+    "@fastify/helmet": "^13.0.1",
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/sensible": "^6.0.3",
+    "@mailio/provider-adapters": "*",
+    "@mailio/shared": "*",
+    "fastify": "^5.6.0",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.5"
+  }
+}
